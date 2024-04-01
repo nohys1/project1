@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <title>과목 및 진로 입력</title>
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 90vh;
+        }
+        form {
+            background: white;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            width: 300px;
+        }
+        h2 {
+            text-align: center;
+            color: #333;
+        }
+        label, button {
+            display: block;
+            margin-top: 10px;
+        }
+        input[type="text"] {
+            width: 100%;
+            padding: 10px;
+            margin-top: 5px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            box-sizing: border-box; /* Ensure padding does not increase the size */
+        }
+        button {
+            background-color: #007bff;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            margin-top: 20px;
+        }
+        button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <form id="courseCareerForm">
+        <h2>현재 수강 중인 과목</h2>
+        <label for="courses">과목 입력:</label>
+        <input type="text" id="courses" name="courses">
+
+        <h2>미래 진로 입력</h2>
+        <label for="career">진로 입력:</label>
+        <input type="text" id="career" name="career">
+
+        <button type="button" onclick="saveData()">저장</button>
+    </form>
+</div>
+
+<script>
+function saveData() {
+    const courses = document.getElementById("courses").value;
+    const career = document.getElementById("career").value;
+    
+    localStorage.setItem("courses", courses);
+    localStorage.setItem("career", career);
+    
+    window.location.href = "course-recommendation.html";
+}
+</script>
+
+</body>
+</html>
